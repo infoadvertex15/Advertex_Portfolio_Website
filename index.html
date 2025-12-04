@@ -9,6 +9,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
+      // Check local storage for theme
+      if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+        document.documentElement.classList.remove('dark')
+      } else {
+        document.documentElement.classList.add('dark')
+      }
+
       tailwind.config = {
         darkMode: 'class',
         theme: {
@@ -18,8 +25,10 @@
             },
             colors: {
               brand: {
-                black: '#050505',
-                dark: '#0A0A0A',
+                black: 'rgb(var(--brand-black) / <alpha-value>)',
+                dark: 'rgb(var(--brand-dark) / <alpha-value>)',
+                primaryText: 'rgb(var(--brand-text-primary) / <alpha-value>)',
+                secondaryText: 'rgb(var(--brand-text-secondary) / <alpha-value>)',
                 teal: '#12C9B2',
                 tealDark: '#0F6F68',
                 beige: '#E9DDCE',
@@ -50,32 +59,68 @@
       }
     </script>
     <style>
-      body {
-        background-color: #050505;
-        color: #F9F5EF;
-        overflow-x: hidden;
+      :root {
+        /* Light Mode Defaults */
+        --brand-black: 250 250 250; /* Very light gray/white */
+        --brand-dark: 243 244 246; /* Gray-100 */
+        --brand-text-primary: 17 24 39; /* Gray-900 */
+        --brand-text-secondary: 75 85 99; /* Gray-600 */
+        --glass-bg: 255 255 255;
+        --glass-border: 0 0 0;
       }
+      .dark {
+        /* Dark Mode Overrides */
+        --brand-black: 5 5 5;
+        --brand-dark: 10 10 10;
+        --brand-text-primary: 255 255 255;
+        --brand-text-secondary: 233 221 206; /* brand-beige */
+        --glass-bg: 20 20 20;
+        --glass-border: 255 255 255;
+      }
+
+      body {
+        background-color: rgb(var(--brand-black));
+        color: rgb(var(--brand-text-primary));
+        overflow-x: hidden;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      
       /* Custom Scrollbar */
       ::-webkit-scrollbar {
         width: 8px;
       }
       ::-webkit-scrollbar-track {
-        background: #050505;
+        background: rgb(var(--brand-black));
       }
       ::-webkit-scrollbar-thumb {
-        background: #1A1A1A;
+        background: #333;
         border-radius: 4px;
+      }
+      .dark ::-webkit-scrollbar-thumb {
+        background: #1A1A1A;
       }
       ::-webkit-scrollbar-thumb:hover {
         background: #12C9B2;
       }
+
       .glass-panel {
-        background: rgba(20, 20, 20, 0.6);
+        background: rgba(255, 255, 255, 0.7);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        transition: background 0.3s ease, border-color 0.3s ease;
+      }
+      .dark .glass-panel {
+        background: rgba(20, 20, 20, 0.6);
         border: 1px solid rgba(255, 255, 255, 0.08);
       }
+
       .text-gradient {
+        background: linear-gradient(135deg, #1A1A1A 0%, #12C9B2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .dark .text-gradient {
         background: linear-gradient(135deg, #E9DDCE 0%, #FFFFFF 50%, #12C9B2 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;

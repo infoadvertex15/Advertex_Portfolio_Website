@@ -12,7 +12,7 @@ export const About: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
            <div>
              <SectionHeading title="Not Just Another Agency." subtitle="Our Story" />
-             <div className="space-y-6 text-lg text-brand-beige/70 leading-relaxed">
+             <div className="space-y-6 text-lg text-brand-secondaryText leading-relaxed">
                <p>
                  Advertex was born from a simple frustration: seeing incredible brands fail because of outdated marketing strategies.
                </p>
@@ -26,12 +26,12 @@ export const About: React.FC = () => {
              
              <div className="grid grid-cols-2 gap-8 mt-12">
                <div>
-                 <h4 className="text-4xl font-bold text-white mb-2">50+</h4>
-                 <p className="text-brand-beige/50">Team Members</p>
+                 <h4 className="text-4xl font-bold text-brand-primaryText mb-2">50+</h4>
+                 <p className="text-brand-secondaryText">Team Members</p>
                </div>
                <div>
-                 <h4 className="text-4xl font-bold text-white mb-2">$150M+</h4>
-                 <p className="text-brand-beige/50">Revenue Generated</p>
+                 <h4 className="text-4xl font-bold text-brand-primaryText mb-2">$150M+</h4>
+                 <p className="text-brand-secondaryText">Revenue Generated</p>
                </div>
              </div>
            </div>
@@ -55,10 +55,10 @@ export const About: React.FC = () => {
                { icon: Award, title: 'Quality', desc: 'Apple-level aesthetics. We don’t ship anything that isn’t world-class.' },
                { icon: Users, title: 'Partnership', desc: 'We aren’t a vendor. We are an extension of your growth team.' }
              ].map((item, i) => (
-               <div key={i} className="glass-panel p-8 rounded-xl border border-white/5 hover:border-brand-teal/30 transition-all">
+               <div key={i} className="glass-panel p-8 rounded-xl border border-black/5 dark:border-white/5 hover:border-brand-teal/30 transition-all">
                  <item.icon className="text-brand-teal mb-6" size={32} />
-                 <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                 <p className="text-brand-beige/60">{item.desc}</p>
+                 <h3 className="text-xl font-bold mb-3 text-brand-primaryText">{item.title}</h3>
+                 <p className="text-brand-secondaryText">{item.desc}</p>
                </div>
              ))}
            </div>
@@ -67,7 +67,7 @@ export const About: React.FC = () => {
 
       {/* Team CTA */}
       <div className="container mx-auto px-6 py-32 text-center">
-        <h2 className="text-4xl font-bold mb-8">Ready to meet the team?</h2>
+        <h2 className="text-4xl font-bold mb-8 text-brand-primaryText">Ready to meet the team?</h2>
         <Button onClick={() => navigate('/contact')}>Get In Touch</Button>
       </div>
     </div>

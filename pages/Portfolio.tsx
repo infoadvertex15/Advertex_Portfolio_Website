@@ -23,13 +23,13 @@ export const Portfolio: React.FC = () => {
     if (!project) return null;
 
     return (
-      <div className="fixed inset-0 z-[60] bg-brand-black/95 backdrop-blur-xl overflow-y-auto">
+      <div className="fixed inset-0 z-[60] bg-white/95 dark:bg-brand-black/95 backdrop-blur-xl overflow-y-auto">
         <div className="min-h-screen py-20 px-6">
            <button 
              onClick={() => setSearchParams({})} 
-             className="fixed top-8 right-8 z-50 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+             className="fixed top-8 right-8 z-50 w-12 h-12 rounded-full bg-black/10 dark:bg-white/10 flex items-center justify-center hover:bg-black/20 dark:hover:bg-white/20 transition-colors"
            >
-             <X className="text-white" />
+             <X className="text-brand-primaryText" />
            </button>
 
            <div className="container mx-auto max-w-5xl animate-fade-in-up">
@@ -40,28 +40,28 @@ export const Portfolio: React.FC = () => {
 
               <div className="grid md:grid-cols-3 gap-12">
                 <div className="md:col-span-2">
-                   <h1 className="text-4xl md:text-5xl font-bold mb-6">{project.title}</h1>
-                   <p className="text-xl text-brand-beige/80 mb-8 leading-relaxed">
+                   <h1 className="text-4xl md:text-5xl font-bold mb-6 text-brand-primaryText">{project.title}</h1>
+                   <p className="text-xl text-brand-secondaryText mb-8 leading-relaxed">
                      {project.description}
                    </p>
                    
-                   <h3 className="text-2xl font-bold mb-4">The Challenge & Solution</h3>
-                   <p className="text-brand-beige/60 mb-8 leading-relaxed">
+                   <h3 className="text-2xl font-bold mb-4 text-brand-primaryText">The Challenge & Solution</h3>
+                   <p className="text-brand-secondaryText mb-8 leading-relaxed">
                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                    </p>
                 </div>
 
                 <div className="glass-panel p-8 rounded-2xl h-fit">
                    <div className="mb-6">
-                     <span className="text-xs uppercase text-brand-beige/50 font-bold tracking-widest block mb-1">Client</span>
-                     <span className="text-lg font-semibold">{project.client}</span>
+                     <span className="text-xs uppercase text-brand-secondaryText font-bold tracking-widest block mb-1">Client</span>
+                     <span className="text-lg font-semibold text-brand-primaryText">{project.client}</span>
                    </div>
                    <div className="mb-6">
-                     <span className="text-xs uppercase text-brand-beige/50 font-bold tracking-widest block mb-1">Service</span>
-                     <span className="text-lg font-semibold">{project.category}</span>
+                     <span className="text-xs uppercase text-brand-secondaryText font-bold tracking-widest block mb-1">Service</span>
+                     <span className="text-lg font-semibold text-brand-primaryText">{project.category}</span>
                    </div>
                    <div className="mb-8">
-                     <span className="text-xs uppercase text-brand-beige/50 font-bold tracking-widest block mb-1">Results</span>
+                     <span className="text-xs uppercase text-brand-secondaryText font-bold tracking-widest block mb-1">Results</span>
                      <span className="text-2xl font-bold text-brand-teal">{project.results}</span>
                    </div>
                    <Button className="w-full">Start Similar Project</Button>
@@ -92,7 +92,7 @@ export const Portfolio: React.FC = () => {
               className={`px-6 py-2 rounded-full text-sm font-semibold transition-all ${
                 filter === cat 
                 ? 'bg-brand-teal text-brand-black shadow-[0_0_20px_rgba(18,201,178,0.3)]' 
-                : 'bg-white/5 text-white hover:bg-white/10'
+                : 'bg-black/5 dark:bg-white/5 text-brand-primaryText hover:bg-black/10 dark:hover:bg-white/10'
               }`}
             >
               {cat}

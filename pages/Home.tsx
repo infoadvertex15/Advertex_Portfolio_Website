@@ -18,7 +18,7 @@ export const Home: React.FC = () => {
         <div className="container mx-auto px-6 relative z-10 flex flex-col items-center text-center">
           <div className="max-w-4xl">
             <div 
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 mx-auto hover:bg-white/10 transition-colors cursor-default animate-fade-in-up opacity-0" 
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 mb-8 mx-auto hover:bg-black/10 dark:hover:bg-white/10 transition-colors cursor-default animate-fade-in-up opacity-0" 
               style={{ animationDelay: '0.1s' }}
             >
               <span className="w-2 h-2 rounded-full bg-brand-teal animate-pulse" />
@@ -26,7 +26,7 @@ export const Home: React.FC = () => {
             </div>
             
             <h1 
-              className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-8 tracking-tight animate-fade-in-up opacity-0" 
+              className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-8 tracking-tight animate-fade-in-up opacity-0 text-brand-primaryText" 
               style={{ animationDelay: '0.3s' }}
             >
               Brands That <br />
@@ -34,7 +34,7 @@ export const Home: React.FC = () => {
             </h1>
             
             <p 
-              className="text-xl md:text-2xl text-brand-beige/70 mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-up opacity-0"
+              className="text-xl md:text-2xl text-brand-secondaryText mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-up opacity-0"
               style={{ animationDelay: '0.5s' }}
             >
               We blend creative strategy with modern automation to build digital experiences that convert. Elevate your agency game.
@@ -63,11 +63,11 @@ export const Home: React.FC = () => {
             {SERVICES.slice(0, 3).map((service) => (
               <Card key={service.id} className="group cursor-pointer" hoverEffect>
                 <div onClick={() => navigate(`/services?id=${service.id}`)}>
-                  <div className="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center text-brand-teal mb-6 group-hover:bg-brand-teal group-hover:text-brand-black transition-colors">
+                  <div className="w-14 h-14 rounded-xl bg-black/5 dark:bg-white/5 flex items-center justify-center text-brand-teal mb-6 group-hover:bg-brand-teal group-hover:text-brand-black transition-colors">
                     <service.icon size={28} />
                   </div>
-                  <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
-                  <p className="text-brand-beige/60 mb-6">{service.shortDescription}</p>
+                  <h3 className="text-2xl font-bold mb-3 text-brand-primaryText">{service.title}</h3>
+                  <p className="text-brand-secondaryText mb-6">{service.shortDescription}</p>
                   <span className="text-sm font-semibold text-brand-teal flex items-center gap-2">
                     Learn More <ArrowRight size={14} />
                   </span>
@@ -87,7 +87,7 @@ export const Home: React.FC = () => {
           <div className="flex justify-between items-end mb-12">
             <div>
               <span className="text-brand-teal font-bold uppercase tracking-widest text-xs mb-2 block">Our Work</span>
-              <h2 className="text-4xl font-bold">Selected Projects</h2>
+              <h2 className="text-4xl font-bold text-brand-primaryText">Selected Projects</h2>
             </div>
             <Button variant="outline" onClick={() => navigate('/portfolio')} className="hidden md:flex">View Portfolio</Button>
           </div>
@@ -147,8 +147,8 @@ export const Home: React.FC = () => {
       <section className="py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-brand-teal/5"></div>
         <div className="container mx-auto px-6 text-center relative z-10">
-          <h2 className="text-5xl md:text-7xl font-bold mb-8">Ready to <span className="text-brand-teal">Scale?</span></h2>
-          <p className="text-xl text-brand-beige/60 max-w-2xl mx-auto mb-12">
+          <h2 className="text-5xl md:text-7xl font-bold mb-8 text-brand-primaryText">Ready to <span className="text-brand-teal">Scale?</span></h2>
+          <p className="text-xl text-brand-secondaryText max-w-2xl mx-auto mb-12">
             Stop guessing. Start growing. Book a strategy call today and let's map out your path to market dominance.
           </p>
           <Button variant="primary" className="text-lg px-10 py-5" onClick={() => navigate('/contact')}>Start Your Project</Button>

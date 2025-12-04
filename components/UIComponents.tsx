@@ -134,10 +134,10 @@ export const Button: React.FC<ButtonProps> = ({ children, variant = 'primary', i
   const baseStyles = "inline-flex items-center justify-center px-8 py-3.5 rounded-full text-sm font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed";
   
   const variants = {
-    primary: "bg-brand-teal text-brand-black hover:bg-white hover:shadow-[0_0_20px_rgba(18,201,178,0.4)]",
+    primary: "bg-brand-teal text-brand-black hover:bg-brand-primaryText hover:text-brand-black hover:shadow-[0_0_20px_rgba(18,201,178,0.4)]",
     secondary: "bg-brand-coral text-white hover:bg-red-400 shadow-lg shadow-brand-coral/20",
     outline: "border border-brand-teal/50 text-brand-teal hover:bg-brand-teal hover:text-brand-black",
-    glass: "bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20",
+    glass: "bg-white/10 dark:bg-white/10 backdrop-blur-md border border-black/10 dark:border-white/20 text-brand-primaryText hover:bg-black/5 dark:hover:bg-white/20",
   };
 
   return (
@@ -160,7 +160,7 @@ export const SectionHeading: React.FC<{
     <span className="uppercase tracking-widest text-brand-teal text-xs font-bold mb-3 block">
       {subtitle}
     </span>
-    <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+    <h2 className="text-4xl md:text-5xl font-bold leading-tight text-brand-primaryText">
       {title}
     </h2>
     <div className={`h-1 w-20 bg-brand-teal mt-6 rounded-full ${center ? 'mx-auto' : ''}`} />
@@ -177,7 +177,7 @@ interface CardProps {
 
 export const Card: React.FC<CardProps> = ({ children, className = '', hoverEffect = true }) => (
   <div className={`
-    glass-panel rounded-2xl p-8 border border-white/5 
+    glass-panel rounded-2xl p-8 border border-black/5 dark:border-white/5 
     ${hoverEffect ? 'hover:border-brand-teal/30 hover:shadow-[0_10px_40px_-10px_rgba(18,201,178,0.1)] transition-all duration-500 hover:-translate-y-2' : ''}
     ${className}
   `}>
@@ -193,9 +193,9 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 export const Input: React.FC<InputProps> = ({ label, className = '', ...props }) => (
   <div className="mb-6">
-    <label className="block text-brand-beige/70 text-sm font-medium mb-2 pl-1">{label}</label>
+    <label className="block text-brand-secondaryText text-sm font-medium mb-2 pl-1">{label}</label>
     <input 
-      className={`w-full bg-brand-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-teal focus:ring-1 focus:ring-brand-teal transition-colors placeholder-white/20 ${className}`}
+      className={`w-full bg-black/5 dark:bg-black/50 border border-black/10 dark:border-white/10 rounded-xl px-4 py-3 text-brand-primaryText focus:outline-none focus:border-brand-teal focus:ring-1 focus:ring-brand-teal transition-colors placeholder-brand-secondaryText/50 ${className}`}
       {...props}
     />
   </div>
@@ -207,9 +207,9 @@ interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement
 
 export const TextArea: React.FC<TextAreaProps> = ({ label, className = '', ...props }) => (
   <div className="mb-6">
-    <label className="block text-brand-beige/70 text-sm font-medium mb-2 pl-1">{label}</label>
+    <label className="block text-brand-secondaryText text-sm font-medium mb-2 pl-1">{label}</label>
     <textarea 
-      className={`w-full bg-brand-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-teal focus:ring-1 focus:ring-brand-teal transition-colors placeholder-white/20 min-h-[120px] ${className}`}
+      className={`w-full bg-black/5 dark:bg-black/50 border border-black/10 dark:border-white/10 rounded-xl px-4 py-3 text-brand-primaryText focus:outline-none focus:border-brand-teal focus:ring-1 focus:ring-brand-teal transition-colors placeholder-brand-secondaryText/50 min-h-[120px] ${className}`}
       {...props}
     />
   </div>
